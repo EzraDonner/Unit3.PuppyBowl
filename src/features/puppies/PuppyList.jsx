@@ -5,7 +5,7 @@ import { useGetAllPuppiesQuery } from "../../api/puppyBowlApi";
  * Shows a list of puppies in the roster.
  * Users can select a puppy to see more information about it.
  */
-export default function PuppyList({ setSelectedPuppyId }) {
+export default function PuppyList() {
   // TODO: Get data from getPuppies query
   const { data = {}, isLoading, error } = useGetAllPuppiesQuery();
   if (isLoading) {
@@ -26,12 +26,11 @@ export default function PuppyList({ setSelectedPuppyId }) {
               <h3>
                 {p.name} #{p.id}
               </h3>
+              <p>{p.breed}</p>
+              <p>{p.status}</p>
               <figure>
                 <img src={p.imageUrl} alt={p.name} />
               </figure>
-              <button onClick={() => setSelectedPuppyId(p.id)}>
-                See details
-              </button>
             </li>
           ))}
       </ul>
