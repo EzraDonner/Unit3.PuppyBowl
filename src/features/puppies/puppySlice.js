@@ -1,4 +1,4 @@
-import api from "../../store/api";
+import api from "../../api/puppyBowlApi";
 
 /*
 TODO: Define the following 4 endpoints:
@@ -15,7 +15,20 @@ functions for each endpoint.
 */
 
 const puppyApi = api.injectEndpoints({
-  endpoints: (build) => ({}),
+  endpoints: (build) => ({
+    getPuppies: build.query({
+      query: () => '/puppies',
+      providesTags:['Puppy'],
+      transformResponse: (response) => response.data,
+      transformErrorResponse: (error) => error,
+    }),
+    getPuppy: build.query({
+      query: (id) => `/puppies/${id}`,
+      providesTags: ['Puppy'],
+      transformResponse: (response) => response.data,
+      transformErrorResponse: (error) => error,
+        }),
+  }),
 });
 
 export const {
@@ -24,3 +37,4 @@ export const {
   useAddPuppyMutation,
   useDeletePuppyMutation,
 } = puppyApi;
+

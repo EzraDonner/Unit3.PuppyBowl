@@ -5,7 +5,7 @@ import store from "./store/store";
 
 import PuppyDetails from "./features/puppies/PuppyDetails";
 import PuppyList from "./features/puppies/PuppyList";
-import PuppyForm from "./features/puppies/PuppyForm";
+// import PuppyForm from "./features/puppies/PuppyForm";
 
 import "./App.scss";
 
@@ -21,7 +21,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <h1>Puppy Bowl</h1>
-      <PuppyForm />
+      {/* <PuppyForm /> */}
       <main>
         <PuppyList setSelectedPuppyId={setSelectedPuppyId} />
         <PuppyDetails
